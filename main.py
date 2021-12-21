@@ -7,7 +7,7 @@ print(df)
 
 cikis = df.iloc[0:125, 5].values
 cikis = np.where(cikis == 1, -1, 1)
-giris = df.iloc[0:125, [1, 3]].values
+giris = df.iloc[0:125, [0, 1, 2, 3]].values
 
 plt.title('2D görünüm', fontsize=16)
 
