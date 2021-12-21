@@ -2,17 +2,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas
 
-df = pandas.read_csv('data_456.csv', header=None) #Okul numaramın sonu 1 ile bittiği için kullanmakta olduğum data_0123.csv veri setini ana dizinden alıyorum.
+df = pandas.read_csv('data_456.csv', header=None)
 print(df)
 
-cikis = df.iloc[0:125, 5].values #cikis olarak alacağımiz değerin veri setinin 6. satırındaki deger olduğunu belirtioruz.
-cikis = np.where(cikis == 1, -1, 1) #Veri setindeki 0 degerleri -1, 1 degerleri 1 olarak cikis dizisinde tutulacak.
-giris = df.iloc[0:125, [1, 3]].values #giris olarak kullanacağımız değerler veri setindeki 1. ve 3. sütunlar olacak o sütunlara bakarak gelecek yeni veriyi karşılaştıracağız.
+cikis = df.iloc[0:125, 5].values
+cikis = np.where(cikis == 1, -1, 1)
+giris = df.iloc[0:125, [1, 3]].values
 
 plt.title('2D görünüm', fontsize=16)
 
-plt.scatter(giris[:63, 0], giris[:63, -1], color='black', marker='o', label='birler') #Veri setindeki 1 sınıfına ait verileri çizdiriyor.
-plt.scatter(giris[63:125, 0], giris[63:125, 1], color='green', marker='x', label='sıfırlar') #Veri setindeki 0 sınıfına ait verileri çizdiriyor.
+plt.scatter(giris[:63, 0], giris[:63, -1], color='black', marker='o', label='birler')
+plt.scatter(giris[63:125, 0], giris[63:125, 1], color='green', marker='x', label='sıfırlar')
 plt.xlabel('sapel length')
 plt.ylabel('petal length')
 plt.legend(loc='upper left')
@@ -20,7 +20,7 @@ plt.legend(loc='upper left')
 plt.show()
 
 
-class Perceptron(object): #Bu perceptron sınıfı alıntıdır.
+class Perceptron(object):
     def __init__(self, ogrenme_orani=0.1, iter_sayisi=10):
         self.ogrenme_orani = ogrenme_orani
         self.iter_sayisi = iter_sayisi
